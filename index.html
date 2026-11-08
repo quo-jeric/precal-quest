@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Calculus Learning Hub | For Pre-Service Mathematics Teachers</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- KaTeX for High-Fidelity Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Top Sticky Header Navigation -->
+  <header class="site-header">
+    <div class="container navbar">
+      <div class="brand-logo-group" onclick="App.navigateTo('home')">
+        <div class="brand-icon-box">∑</div>
+        <div class="brand-title-area">
+          <span class="brand-title">Pre-Calculus <span>Learning Hub</span></span>
+          <span class="brand-tagline">Pre-Service Teacher E-Learning Module</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active" data-section="home" onclick="App.navigateTo('home')">🏠 Home</a></li>
+          <li><a href="#modules" class="nav-link" data-section="modules" onclick="App.navigateTo('modules')">📚 Modules</a></li>
+          <li><a href="#practice" class="nav-link" data-section="practice" onclick="App.navigateTo('practice')">✏️ Guided Practice</a></li>
+          <li><a href="#games" class="nav-link" data-section="games" onclick="App.navigateTo('games')">🎮 Wordwall Games</a></li>
+          <li><a href="#progress" class="nav-link" data-section="progress" onclick="App.navigateTo('progress')">🏆 Progress & Data</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-stats">
+        <div class="header-badge header-badge-xp" id="header-xp-badge" title="Total XP Earned">0 XP</div>
+        <div class="header-badge header-badge-lessons" id="header-completed-badge" title="Modules Completed">0/7 Completed</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Areas -->
+  <main class="container">
+
+    <!-- 1. HOME SECTION -->
+    <section id="section-home" class="view-section">
+      <!-- Hero Section -->
+      <div class="home-hero">
+        <div class="hero-content">
+          <div class="hero-pill-badge">🎓 For First-Year Pre-Service Mathematics Teachers</div>
+          <h1 class="hero-title">Master Pre-Calculus Foundations for <span class="highlight-orange">Calculus 1 Success</span></h1>
+          <p class="hero-lead">
+            Welcome to the <strong>Pre-Calculus Learning Hub</strong>. Designed specifically for future secondary mathematics educators, this supplementary e-learning module builds rapid algebraic fluency with polynomials, reinforces rigorous mathematical communication, and sharpens your diagnostic ability to identify common student misconceptions.
+          </p>
+          <div class="hero-cta-group">
+            <button class="btn btn-primary" onclick="App.navigateTo('modules')">🚀 Start Learning Modules</button>
+            <button class="btn btn-secondary" onclick="App.navigateTo('practice')">✏️ Jump to Guided Practice</button>
+            <button class="btn btn-accent" onclick="App.navigateTo('games')">🎮 Play Wordwall Challenges</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Learning Objectives -->
+      <div class="home-objectives-section">
+        <h2 class="section-headline">Target Learning Competencies</h2>
+        <p class="section-subheadline">Key procedural and pedagogical goals for prospective mathematics teachers preparing for university Calculus 1.</p>
+        <div class="objectives-grid" id="home-objectives-grid">
+          <!-- Populated by App.renderHomePage() -->
+        </div>
+      </div>
+
+      <!-- Curriculum Roadmap -->
+      <div class="home-competencies-section">
+        <h2 class="section-headline">Curriculum Roadmap: Algebraic Expressions & Polynomials</h2>
+        <p class="section-subheadline">Explore all 7 core pre-calculus competencies. Click any unit card to launch its theory, worked solutions, and teacher alerts.</p>
+        <div class="competencies-grid" id="home-competencies-grid">
+          <!-- Populated by App.renderHomePage() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LEARNING MODULES SECTION -->
+    <section id="section-modules" class="view-section hidden">
+      <div class="modules-page-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="modules-sidebar">
+          <h3 class="sidebar-title">📖 Competencies</h3>
+          <div class="module-tabs-list" id="module-tabs-list">
+            <!-- Populated by ModulesManager.renderModuleNav() -->
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="module-content-area" id="module-content-area">
+          <!-- Populated by ModulesManager.renderModuleContent() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GUIDED PRACTICE SECTION -->
+    <section id="section-practice" class="view-section hidden">
+      <div class="practice-header-card">
+        <div class="practice-header-text">
+          <span class="badge badge-accent">Tiered Problem-Solving</span>
+          <h2 class="section-headline">Guided Practice & Self-Assessment</h2>
+          <p class="section-subheadline" style="margin-bottom: 0.5rem;">
+            Test your procedural skills across basic, intermediate, and calculus-readiness levels. Each problem includes progressive hints and teacher pedagogical notes!
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-tabs-row">
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-right: 0.5rem;">Filter by Difficulty:</span>
+          <button class="filter-btn active" onclick="PracticeManager.setFilters('all', 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">All Levels</button>
+          <button class="filter-btn" onclick="PracticeManager.setFilters(1, 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Level 1: Basic</button>
+          <button class="filter-btn" onclick="PracticeManager.setFilters(2, 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Level 2: Intermediate</button>
+          <button class="filter-btn" onclick="PracticeManager.setFilters(3, 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Level 3: Calculus Readiness</button>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="practice-stats-bar" id="practice-stats-bar">
+          <!-- Populated by PracticeManager.renderPracticeSummary() -->
+        </div>
+      </div>
+
+      <!-- Practice Question List -->
+      <div class="practice-questions-list" id="practice-questions-list">
+        <!-- Populated by PracticeManager.renderQuestionBank() -->
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE GAME CHALLENGES (WORDWALL) SECTION -->
+    <section id="section-games" class="view-section hidden">
+      <div class="practice-header-card" style="margin-bottom: 1.5rem;">
+        <span class="badge badge-accent">Interactive Gamification</span>
+        <h2 class="section-headline">Wordwall Arcade Challenges</h2>
+        <p class="section-subheadline" style="margin-bottom: 0;">
+          Engage in interactive drills matched to polynomial competencies. Pre-service teachers and instructors can easily customize or embed new Wordwall games directly into <code>localStorage</code>!
+        </p>
+      </div>
+
+      <!-- Games View Container -->
+      <div id="games-container-view">
+        <!-- Populated by GamesManager.renderGamesHub() -->
+      </div>
+    </section>
+
+    <!-- 5. PROGRESS & DATA MANAGEMENT SECTION -->
+    <section id="section-progress" class="view-section hidden">
+      <div class="practice-header-card" style="margin-bottom: 1.5rem;">
+        <span class="badge badge-primary">Analytics & Storage</span>
+        <h2 class="section-headline">Student Progress & LocalStorage Tools</h2>
+        <p class="section-subheadline" style="margin-bottom: 0;">
+          Track your earned badges, cumulative XP, and review your localStorage data snapshot.
+        </p>
+      </div>
+
+      <!-- Progress Content -->
+      <div id="progress-view-content">
+        <!-- Populated by App.renderProgressView() -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <strong>Pre-Calculus Learning Hub</strong> &copy; 2026 &bull; Supplementary E-Learning Module for Pre-Service Mathematics Teachers
+      </div>
+      <div class="footer-links">
+        <a href="#home" onclick="App.navigateTo('home')">Home</a>
+        <a href="#modules" onclick="App.navigateTo('modules')">Modules</a>
+        <a href="#practice" onclick="App.navigateTo('practice')">Practice</a>
+        <a href="#games" onclick="App.navigateTo('games')">Games</a>
+        <a href="#progress" onclick="App.navigateTo('progress')">Data Backup</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts (Ordered by dependency) -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/modules.js"></script>
+  <script src="js/practice.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
+
