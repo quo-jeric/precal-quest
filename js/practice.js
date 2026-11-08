@@ -1,5 +1,5 @@
 /**
- * PRE-CALCULUS LEARNING HUB - Guided Practice Engine
+ * PRE-CALCULUS LEARNING HUB - Guided Practice Engine (Polished & Professional)
  * Handles tiered problem solving, progressive hints, immediate feedback, and scoring.
  */
 
@@ -45,7 +45,7 @@ const PracticeManager = {
         <span class="stat-value text-accent">${accuracy}%</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Practice XP</span>
+        <span class="stat-label">Practice Score</span>
         <span class="stat-value text-primary">+${correctCount * 25} XP</span>
       </div>
     `;
@@ -99,7 +99,7 @@ const PracticeManager = {
             </div>
             ${isAnswered ? `
               <div class="status-indicator ${isCorrect ? 'text-success' : 'text-danger'}">
-                ${isCorrect ? '✅ Solved (+25 XP)' : '⚠️ Needs Review'}
+                ${isCorrect ? 'Verified (+25 XP)' : 'Review Needed'}
               </div>
             ` : ''}
           </div>
@@ -137,7 +137,7 @@ const PracticeManager = {
             <button class="btn btn-outline btn-sm hint-toggle-btn" 
                     id="hint-btn-${q.id}"
                     onclick="PracticeManager.revealNextHint('${q.id}')">
-              💡 Reveal Hint (1/2)
+              View Conceptual Hint (1/2)
             </button>
           </div>
 
@@ -146,7 +146,7 @@ const PracticeManager = {
             <div class="hint-inner-content" id="hint-content-${q.id}"></div>
           </div>
 
-          <!-- Explanation / Feedback Panel (Shown after answering) -->
+          <!-- Explanation / Feedback Panel -->
           <div class="feedback-panel ${isAnswered ? '' : 'hidden'}" id="feedback-panel-${q.id}">
             ${isAnswered ? this.generateFeedbackHTML(q, isCorrect) : ''}
           </div>
@@ -188,7 +188,7 @@ const PracticeManager = {
           <p class="katex-render">${question.hints[0]}</p>
         </div>
       `;
-      btn.innerText = "💡 Reveal Formula Setup (2/2)";
+      btn.innerText = "View Formula Setup (2/2)";
     } else if (currentHintStage === 1) {
       // Show Hint 2
       box.dataset.hintStage = "2";
@@ -198,7 +198,7 @@ const PracticeManager = {
           <p class="katex-render">${question.hints[1]}</p>
         </div>
       `;
-      btn.innerText = "✓ All Hints Revealed";
+      btn.innerText = "All Hints Displayed";
       btn.disabled = true;
     }
 
@@ -267,9 +267,9 @@ const PracticeManager = {
     // Trigger toast notification
     if (window.App && window.App.showToast) {
       if (isCorrect) {
-        window.App.showToast(result.isFirstSuccess ? "🎯 Excellent! Correct Answer (+25 XP)" : "✅ Correct!", "success");
+        window.App.showToast(result.isFirstSuccess ? "Correct answer recorded (+25 XP)" : "Correct answer confirmed", "success");
       } else {
-        window.App.showToast("Not quite right. Review the hints or try again!", "warning");
+        window.App.showToast("Review the worked solution and pedagogical note", "warning");
       }
     }
   },
@@ -278,8 +278,7 @@ const PracticeManager = {
     return `
       <div class="feedback-banner ${isCorrect ? 'banner-success' : 'banner-warning'}">
         <div class="feedback-header">
-          <span class="feedback-icon">${isCorrect ? '🎉' : '💡'}</span>
-          <strong>${isCorrect ? 'Outstanding Mathematical Reasoning!' : 'Review the Solution & Try Again'}</strong>
+          <strong>${isCorrect ? 'Verified Solution' : 'Solution Analysis & Diagnostic Review'}</strong>
         </div>
         
         <div class="feedback-content">
@@ -289,7 +288,7 @@ const PracticeManager = {
           </div>
 
           <div class="pedagogy-alert-box">
-            <strong>👩‍🏫 Pre-Service Teacher Diagnostic Note:</strong>
+            <strong>Pedagogical Observation for Pre-Service Teachers:</strong>
             <p>${question.teachingNote}</p>
           </div>
         </div>
@@ -304,4 +303,3 @@ const PracticeManager = {
 };
 
 window.PracticeManager = PracticeManager;
-

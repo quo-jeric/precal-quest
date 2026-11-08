@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- KaTeX for High-Fidelity Mathematical Typesetting -->
+  <!-- KaTeX for Mathematical Typesetting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
@@ -20,31 +20,32 @@
 </head>
 <body>
 
-  <!-- Top Sticky Header Navigation -->
+  <!-- Top Sticky Header Navigation (Clean, Professional, Text-Only Nav) -->
   <header class="site-header">
     <div class="container navbar">
       <div class="brand-logo-group" onclick="App.navigateTo('home')">
-        <div class="brand-icon-box">∑</div>
+        <div class="brand-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+            <path d="M6 6h10"></path>
+            <path d="M6 10h10"></path>
+          </svg>
+        </div>
         <div class="brand-title-area">
           <span class="brand-title">Pre-Calculus <span>Learning Hub</span></span>
-          <span class="brand-tagline">Pre-Service Teacher E-Learning Module</span>
+          <span class="brand-tagline">Pre-Service Mathematics Educator Portal</span>
         </div>
       </div>
 
       <nav>
         <ul class="nav-menu">
-          <li><a href="#home" class="nav-link active" data-section="home" onclick="App.navigateTo('home')">🏠 Home</a></li>
-          <li><a href="#modules" class="nav-link" data-section="modules" onclick="App.navigateTo('modules')">📚 Modules</a></li>
-          <li><a href="#practice" class="nav-link" data-section="practice" onclick="App.navigateTo('practice')">✏️ Guided Practice</a></li>
-          <li><a href="#games" class="nav-link" data-section="games" onclick="App.navigateTo('games')">🎮 Wordwall Games</a></li>
-          <li><a href="#progress" class="nav-link" data-section="progress" onclick="App.navigateTo('progress')">🏆 Progress & Data</a></li>
+          <li><a href="#home" class="nav-link active" data-section="home" onclick="App.navigateTo('home')">Home</a></li>
+          <li><a href="#modules" class="nav-link" data-section="modules" onclick="App.navigateTo('modules')">Learning Modules</a></li>
+          <li><a href="#practice" class="nav-link" data-section="practice" onclick="App.navigateTo('practice')">Guided Practice</a></li>
+          <li><a href="#games" class="nav-link" data-section="games" onclick="App.navigateTo('games')">Interactive Activities</a></li>
+          <li><a href="#progress" class="nav-link" data-section="progress" onclick="App.navigateTo('progress')">Student Progress</a></li>
         </ul>
       </nav>
-
-      <div class="header-stats">
-        <div class="header-badge header-badge-xp" id="header-xp-badge" title="Total XP Earned">0 XP</div>
-        <div class="header-badge header-badge-lessons" id="header-completed-badge" title="Modules Completed">0/7 Completed</div>
-      </div>
     </div>
   </header>
 
@@ -56,15 +57,15 @@
       <!-- Hero Section -->
       <div class="home-hero">
         <div class="hero-content">
-          <div class="hero-pill-badge">🎓 For First-Year Pre-Service Mathematics Teachers</div>
+          <div class="hero-pill-badge">For First-Year Pre-Service Mathematics Teachers</div>
           <h1 class="hero-title">Master Pre-Calculus Foundations for <span class="highlight-orange">Calculus 1 Success</span></h1>
           <p class="hero-lead">
             Welcome to the <strong>Pre-Calculus Learning Hub</strong>. Designed specifically for future secondary mathematics educators, this supplementary e-learning module builds rapid algebraic fluency with polynomials, reinforces rigorous mathematical communication, and sharpens your diagnostic ability to identify common student misconceptions.
           </p>
           <div class="hero-cta-group">
-            <button class="btn btn-primary" onclick="App.navigateTo('modules')">🚀 Start Learning Modules</button>
-            <button class="btn btn-secondary" onclick="App.navigateTo('practice')">✏️ Jump to Guided Practice</button>
-            <button class="btn btn-accent" onclick="App.navigateTo('games')">🎮 Play Wordwall Challenges</button>
+            <button class="btn btn-primary" onclick="App.navigateTo('modules')">Start Learning Modules</button>
+            <button class="btn btn-secondary" onclick="App.navigateTo('practice')">Guided Practice Exercises</button>
+            <button class="btn btn-outline" onclick="App.navigateTo('games')">Explore Interactive Activities</button>
           </div>
         </div>
       </div>
@@ -81,7 +82,7 @@
       <!-- Curriculum Roadmap -->
       <div class="home-competencies-section">
         <h2 class="section-headline">Curriculum Roadmap: Algebraic Expressions & Polynomials</h2>
-        <p class="section-subheadline">Explore all 7 core pre-calculus competencies. Click any unit card to launch its theory, worked solutions, and teacher alerts.</p>
+        <p class="section-subheadline">Explore all 7 core pre-calculus competencies. Select any module to view its theory, worked solutions, and teacher alerts.</p>
         <div class="competencies-grid" id="home-competencies-grid">
           <!-- Populated by App.renderHomePage() -->
         </div>
@@ -93,7 +94,7 @@
       <div class="modules-page-layout">
         <!-- Sidebar Navigation -->
         <aside class="modules-sidebar">
-          <h3 class="sidebar-title">📖 Competencies</h3>
+          <h3 class="sidebar-title">Competencies</h3>
           <div class="module-tabs-list" id="module-tabs-list">
             <!-- Populated by ModulesManager.renderModuleNav() -->
           </div>
@@ -113,13 +114,13 @@
           <span class="badge badge-accent">Tiered Problem-Solving</span>
           <h2 class="section-headline">Guided Practice & Self-Assessment</h2>
           <p class="section-subheadline" style="margin-bottom: 0.5rem;">
-            Test your procedural skills across basic, intermediate, and calculus-readiness levels. Each problem includes progressive hints and teacher pedagogical notes!
+            Test your procedural skills across basic, intermediate, and calculus-readiness levels. Each problem includes progressive hints, worked solutions, and teacher diagnostic notes.
           </p>
         </div>
 
         <!-- Filter Buttons -->
         <div class="filter-tabs-row">
-          <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-right: 0.5rem;">Filter by Difficulty:</span>
+          <span class="filter-label">Filter by Difficulty:</span>
           <button class="filter-btn active" onclick="PracticeManager.setFilters('all', 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">All Levels</button>
           <button class="filter-btn" onclick="PracticeManager.setFilters(1, 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Level 1: Basic</button>
           <button class="filter-btn" onclick="PracticeManager.setFilters(2, 'all'); document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active');">Level 2: Intermediate</button>
@@ -141,10 +142,10 @@
     <!-- 4. INTERACTIVE GAME CHALLENGES (WORDWALL) SECTION -->
     <section id="section-games" class="view-section hidden">
       <div class="practice-header-card" style="margin-bottom: 1.5rem;">
-        <span class="badge badge-accent">Interactive Gamification</span>
-        <h2 class="section-headline">Wordwall Arcade Challenges</h2>
+        <span class="badge badge-accent">Interactive Reinforcement</span>
+        <h2 class="section-headline">Wordwall Practice Challenges</h2>
         <p class="section-subheadline" style="margin-bottom: 0;">
-          Engage in interactive drills matched to polynomial competencies. Pre-service teachers and instructors can easily customize or embed new Wordwall games directly into <code>localStorage</code>!
+          Engage in interactive exercises designed to build rapid pattern recognition and algebraic automaticity for Calculus 1.
         </p>
       </div>
 
@@ -154,13 +155,13 @@
       </div>
     </section>
 
-    <!-- 5. PROGRESS & DATA MANAGEMENT SECTION -->
+    <!-- 5. STUDENT PROGRESS SECTION -->
     <section id="section-progress" class="view-section hidden">
       <div class="practice-header-card" style="margin-bottom: 1.5rem;">
-        <span class="badge badge-primary">Analytics & Storage</span>
-        <h2 class="section-headline">Student Progress & LocalStorage Tools</h2>
+        <span class="badge badge-primary">Academic Record</span>
+        <h2 class="section-headline">Student Competency & Calculus Readiness</h2>
         <p class="section-subheadline" style="margin-bottom: 0;">
-          Track your earned badges, cumulative XP, and review your localStorage data snapshot.
+          Review your verified competencies, practice accuracy metrics, and readiness evaluation for Calculus 1.
         </p>
       </div>
 
@@ -172,23 +173,23 @@
 
   </main>
 
-  <!-- Site Footer -->
+  <!-- Site Footer (Clean, Text-Only Links) -->
   <footer class="site-footer">
     <div class="container footer-content">
-      <div>
-        <strong>Pre-Calculus Learning Hub</strong> &copy; 2026 &bull; Supplementary E-Learning Module for Pre-Service Mathematics Teachers
+      <div class="footer-brand">
+        <strong>Pre-Calculus Learning Hub</strong> &bull; Supplementary E-Learning Module for Pre-Service Mathematics Teachers
       </div>
       <div class="footer-links">
         <a href="#home" onclick="App.navigateTo('home')">Home</a>
-        <a href="#modules" onclick="App.navigateTo('modules')">Modules</a>
-        <a href="#practice" onclick="App.navigateTo('practice')">Practice</a>
-        <a href="#games" onclick="App.navigateTo('games')">Games</a>
-        <a href="#progress" onclick="App.navigateTo('progress')">Data Backup</a>
+        <a href="#modules" onclick="App.navigateTo('modules')">Learning Modules</a>
+        <a href="#practice" onclick="App.navigateTo('practice')">Guided Practice</a>
+        <a href="#games" onclick="App.navigateTo('games')">Interactive Activities</a>
+        <a href="#progress" onclick="App.navigateTo('progress')">Student Progress</a>
       </div>
     </div>
   </footer>
 
-  <!-- Core Scripts (Ordered by dependency) -->
+  <!-- Core Scripts -->
   <script src="js/data.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/modules.js"></script>
@@ -198,4 +199,3 @@
 
 </body>
 </html>
-
