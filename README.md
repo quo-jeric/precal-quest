@@ -1,17 +1,17 @@
 # Pre-Calculus Learning Hub
 
-An interactive, gamified e-learning web platform designed specifically for **first-year pre-service mathematics teachers** preparing for Calculus 1.
+An interactive, sleek educational web platform designed specifically for **first-year pre-service mathematics teachers** preparing for Calculus 1.
 
-Developed as a supplementary learning module to strengthen algebraic competencies, develop pedagogical awareness of student misconceptions, and provide gamified practice through embedded Wordwall arcade activities.
+Developed as a supplementary learning module to strengthen algebraic competencies, develop pedagogical awareness of student misconceptions, and provide interactive reinforcement through embedded Wordwall practice activities.
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 ### 1. Home Page & Competency Roadmap
-- **Welcome & Orientation:** Contextualized specifically for pre-service secondary math teachers.
-- **Learning Objectives Grid:** Focused on algebraic fluency, structural pattern recognition, and diagnostic skills.
-- **Visual Roadmap:** Quick overview of the 7 core competencies with real-time mastery badges.
+- **Welcome & Orientation:** Contextualized specifically for pre-service secondary math educators.
+- **Target Learning Competencies Grid:** Focused on algebraic fluency, structural pattern recognition, and diagnostic skills.
+- **Curriculum Roadmap:** Quick overview of the 7 core competencies with real-time mastery badges.
 
 ### 2. Learning Modules (7 Polynomial Competencies)
 - **ALG-01:** Adding and Subtracting Polynomials (Standard form, degree classification, combining like terms, sign distribution)
@@ -24,10 +24,10 @@ Developed as a supplementary learning module to strengthen algebraic competencie
 
 **Inside Each Module:**
 - Explicit learning objectives
-- Concise mathematical explanations
+- Concise mathematical explanations and theory
 - **Formula Vault:** Quick-reference cards for key theorems and identities
 - **Step-by-step worked solutions:** Sequential algebraic reasoning
-- **Teacher's Alert (Common Student Misconceptions):** Highlighting classic high school student errors (such as the Freshman's Dream $(a+b)^2 \neq a^2+b^2$, sign drops during subtraction, omitting the middle term in cube formulas) with actionable pedagogical guidance.
+- **Teacher's Alert (Common Student Misconceptions):** Highlights classic secondary school errors (such as the Freshman's Dream $(a+b)^2 \neq a^2+b^2$, sign drops during subtraction, omitting the middle term in cube formulas) with practical pedagogical guidance.
 
 ### 3. Guided Practice with Instant Feedback
 - **Tiered Question Difficulty:**
@@ -37,52 +37,29 @@ Developed as a supplementary learning module to strengthen algebraic competencie
 - **Progressive Hint Engine:** 2-stage hints (Conceptual Strategy $\rightarrow$ Formula Setup).
 - **Immediate Feedback:** Real-time scoring, full step-by-step worked explanations, and pedagogical commentary for future teachers.
 
-### 4. Interactive Wordwall Game Challenges
-- Pre-configured responsive Wordwall math games (Match-Up, Speed Sort, Quiz, Wheel).
-- **In-App Add/Edit Wordwall Link Modal:** Allows pre-service teachers and university professors to paste their own custom Wordwall activity URLs or iframe embed codes. All customizations are saved directly to `localStorage`.
+### 4. Interactive Wordwall Practice Challenges
+- Pre-configured responsive Wordwall activities (Match-Up, Speed Sort, Quiz, Wheel).
+- Streamlined, student-friendly fullscreen and reload controls.
 
-### 5. Progress Tracking & LocalStorage Persistence
-- Complete offline-ready data persistence in browser `localStorage`.
-- XP scoring system (+50 XP per completed module, +25 XP per practice problem).
-- Unlockable achievement badges (*Algebra Initiate*, *Polynomial Scholar*, *Pre-Calculus Master*, *Fluency Builder*, *Calculus 1 Ready*).
-- **Backup & Reset Utility:** One-click JSON data export and complete state reset.
-
----
-
-## 🎨 Design & Visual Identity
-
-- **Primary Colors:** Deep Academic Navy (`#1E3A8A`) and Vibrant Royal Blue (`#2563EB`)
-- **Accent Color:** Warm Tangerine / Coral Orange (`#F97316` / `#EA580C`)
-- **Backgrounds:** Clean Slate (`#F8FAFC`) and Pure White (`#FFFFFF`)
-- **Typography:** `Plus Jakarta Sans` with KaTeX CDN mathematical formula typesetting.
+### 5. Academic Student Progress Record
+- **Calculus 1 Readiness Index:** Real-time composite score ($0-100\%$) evaluating readiness for university calculus.
+- **Curriculum Competency Breakdown:** Comprehensive breakdown of all 7 modules with individual completion status, summaries, and jump links.
+- **Academic Milestones:** Certificate-style recognition cards (*Algebra Initiate*, *Polynomial Scholar*, *Pre-Calculus Master*, *Fluency Builder*, *Calculus 1 Ready*).
+- Complete offline-ready persistence in browser `localStorage`.
 
 ---
 
-## 🚀 Getting Started
+## Design & Visual Identity
 
-Simply open `index.html` in any modern web browser:
-```bash
-# Optional: run a local static web server
-npx serve .
-# Or open directly in your browser:
-# start index.html
-```
+- **Aesthetic:** Clean, modern, academic university portal.
+- **Primary Colors:** Deep Academic Navy (`#0F2942`) and Royal Blue (`#1E40AF` / `#2563EB`)
+- **Accent Color:** Warm Amber / Terracotta (`#EA580C` / `#D97706`)
+- **Surfaces:** Clean Slate (`#F8FAFC`) and Pure White (`#FFFFFF`)
+- **Typography:** `Plus Jakarta Sans` paired with KaTeX for mathematical formulas.
+- **Iconography:** Pure text navigation; sleek minimalist SVG line icons on necessary cards and badges only; zero emojis.
 
 ---
 
-## 📂 File Structure
+## Getting Started
 
-```
-precal-quest-app/
-├── index.html              # Main Single-Page Application (SPA) structure
-├── README.md               # Documentation and pedagogical guide
-├── css/
-│   └── styles.css          # Blue/Orange/White responsive academic styling
-└── js/
-    ├── data.js             # Seed JSON database (7 competencies, practice bank, Wordwall games)
-    ├── storage.js          # LocalStorage controller & progress tracking
-    ├── modules.js          # Renders lessons, formulas, step solutions, and teacher alerts
-    ├── practice.js         # Guided practice engine with hints and scoring
-    ├── games.js            # Wordwall embedded player and custom link editor modal
-    └── app.js              # Routing, navigation, and application coordinator
-```
+Open [index.html](file:///c:/Users/acer/precal-quest-app/index.html) in any modern web browser.
